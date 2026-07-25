@@ -140,6 +140,10 @@ typedef struct {
     lv_style_t list_bg, list_btn, list_item_grow;
 #endif
 
+#if LV_USE_TREEVIEW
+    lv_style_t treeview_bg;
+#endif
+
 #if LV_USE_TABVIEW
     lv_style_t tab_bg_focus, tab_btn;
 #endif
@@ -594,6 +598,18 @@ static void style_init(my_theme_t * theme)
 
     style_init_reset(&theme->styles.list_item_grow);
     lv_style_set_transform_width(&theme->styles.list_item_grow, PAD_DEF);
+#endif
+
+#if LV_USE_TREEVIEW
+    style_init_reset(&theme->styles.treeview_bg);
+    lv_style_set_bg_opa(&theme->styles.treeview_bg, LV_OPA_COVER);
+    lv_style_set_bg_color(&theme->styles.treeview_bg, theme->color_card);
+    lv_style_set_border_color(&theme->styles.treeview_bg, theme->color_grey);
+    lv_style_set_border_width(&theme->styles.treeview_bg, LV_DPX_CALC(theme->disp_dpi, 1));
+    lv_style_set_radius(&theme->styles.treeview_bg, RADIUS_DEFAULT);
+    lv_style_set_pad_all(&theme->styles.treeview_bg, PAD_DEF);
+    lv_style_set_pad_gap(&theme->styles.treeview_bg, PAD_SMALL);
+    lv_style_set_text_color(&theme->styles.treeview_bg, theme->color_text);
 #endif
 
 #if LV_USE_LED
@@ -1096,6 +1112,14 @@ static void theme_apply(lv_theme_t * th, lv_obj_t * obj)
         lv_obj_add_style(obj, &theme->styles.list_item_grow, LV_STATE_FOCUS_KEY);
         lv_obj_add_style(obj, &theme->styles.list_item_grow, LV_STATE_PRESSED);
         lv_obj_add_style(obj, &theme->styles.pressed, LV_STATE_PRESSED);
+    }
+#endif
+#if LV_USE_TREEVIEW
+    else if(lv_obj_check_type(obj, &lv_treeview_class)) {
+        lv_obj_add_style(obj, &theme->styles.card, 0);
+        lv_obj_add_style(obj, &theme->styles.treeview_bg, 0);
+        lv_obj_add_style(obj, &theme->styles.scrollbar, LV_PART_SCROLLBAR);
+        lv_obj_add_style(obj, &theme->styles.scrollbar_scrolled, LV_PART_SCROLLBAR | LV_STATE_SCROLLED);
     }
 #endif
 #if LV_USE_MENU

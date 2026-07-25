@@ -260,6 +260,10 @@ typedef struct _lv_table_t lv_table_t;
 
 typedef struct _lv_tabview_t lv_tabview_t;
 
+typedef struct _lv_treeview_t lv_treeview_t;
+
+typedef struct _lv_treeview_node_t lv_treeview_node_t;
+
 typedef struct _lv_tileview_t lv_tileview_t;
 
 typedef struct _lv_tileview_tile_t lv_tileview_tile_t;

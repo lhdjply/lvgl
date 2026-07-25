@@ -776,6 +776,27 @@
       "dir"
     ]
   },
+  "lv_treeview": {
+    "_auto": {
+      "fields": {
+        "root_node": "pointer",
+        "default_expanded": "bool"
+      }
+    }
+  },
+  "lv_treeview_node": {
+    "_auto": {
+      "fields": {
+        "label": "pointer",
+        "children_container": "pointer",
+        "parent": "pointer",
+        "text": "string",
+        "expanded": "bool",
+        "has_children": "bool",
+        "depth": "int"
+      }
+    }
+  },
   "lv_win": {
     "_auto": {
       "fields": {}

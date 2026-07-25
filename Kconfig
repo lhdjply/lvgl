@@ -2112,6 +2112,10 @@ config LV_USE_TILEVIEW
 	bool "Tileview"
 	default y
 
+config LV_USE_TREEVIEW
+	bool "Treeview"
+	default y
+
 config LV_USE_WIN
 	bool "Win"
 	default y

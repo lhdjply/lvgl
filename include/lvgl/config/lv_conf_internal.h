@@ -2952,6 +2952,18 @@
     #endif
 #endif
 
+#ifndef LV_USE_TREEVIEW
+    #ifdef LV_KCONFIG_PRESENT
+        #ifdef CONFIG_LV_USE_TREEVIEW
+            #define LV_USE_TREEVIEW CONFIG_LV_USE_TREEVIEW
+        #else
+            #define LV_USE_TREEVIEW 0
+        #endif
+    #else
+        #define LV_USE_TREEVIEW 1
+    #endif
+#endif
+
 #ifndef LV_USE_WIN
     #ifdef LV_KCONFIG_PRESENT
         #ifdef CONFIG_LV_USE_WIN

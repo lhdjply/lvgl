@@ -1443,6 +1443,9 @@
 /** Tileview */
 #define LV_USE_TILEVIEW 1
 
+/** Treeview */
+#define LV_USE_TREEVIEW 1
+
 /** Win */
 #define LV_USE_WIN 1
 

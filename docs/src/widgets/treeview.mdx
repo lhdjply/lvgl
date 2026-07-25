@@ -1,0 +1,92 @@
+---
+title: "Treeview (lv_treeview)"
+description: "A vertical treeview with expandable/collapsible nodes."
+---
+
+## Overview
+
+The Treeview is a vertical container that displays hierarchical data in a
+tree structure. Each node can have children that are shown or hidden by
+clicking the parent node. Nodes with children show a symbol indicating
+their expand/collapse state: ▼ when expanded, ▶ when collapsed.
+
+## Parts and Styles
+
+**Background**
+
+- <ApiLink name="LV_PART_MAIN" /> The main part of the Treeview that uses the
+  [typical background style properties](/common-widget-features/styles/overview).
+- <ApiLink name="LV_PART_SCROLLBAR" /> The scrollbar. See [base widget](/widgets/base_widget)
+  documentation for details.
+
+## Usage
+
+### Creating a Treeview
+
+<ApiLink name="lv_treeview_create" display="lv_treeview_create(parent)" /> creates an empty Treeview.
+
+### Adding Nodes
+
+<ApiLink name="lv_treeview_add_node" display="lv_treeview_add_node(parent_node, text)" /> adds a node
+to the tree. Pass the Treeview itself as `parent_node` to create a root node, or pass an existing
+node to create a child.
+
+```c
+lv_obj_t * tree = lv_treeview_create(lv_screen_active());
+lv_obj_set_size(tree, 280, 300);
+
+/* Root node */
+lv_obj_t * root = lv_treeview_add_node(tree, "Root");
+
+/* Child nodes */
+lv_obj_t * folder = lv_treeview_add_node(root, "Folder");
+lv_obj_t * item = lv_treeview_add_node(folder, "Item");
+```
+
+### Expand / Collapse
+
+Nodes are expanded by default. Clicking a node with children toggles its state.
+
+- <ApiLink name="lv_treeview_node_expand" /> — expand a node to show its children
+- <ApiLink name="lv_treeview_node_collapse" /> — collapse a node to hide its children
+- <ApiLink name="lv_treeview_node_toggle" /> — toggle the expand/collapse state
+
+```c
+lv_treeview_node_expand(node);
+lv_treeview_node_collapse(node);
+```
+
+### Default Expand State
+
+By default all nodes are created expanded. To change this:
+
+```c
+/* New nodes will be collapsed */
+lv_treeview_set_default_expanded(tree, false);
+lv_obj_t * node = lv_treeview_add_node(parent, "Collapsed");
+```
+
+### Get/Set Text and Query
+
+- <ApiLink name="lv_treeview_node_set_text" /> — change a node's text
+- <ApiLink name="lv_treeview_node_get_text" /> — get a node's text
+- <ApiLink name="lv_treeview_node_get_child_count" /> — number of children
+- <ApiLink name="lv_treeview_node_get_child" /> — get a child by index
+- <ApiLink name="lv_treeview_node_get_parent" /> — get the parent node
+- <ApiLink name="lv_treeview_node_is_expanded" /> — check expand state
+
+### Removing Nodes
+
+<ApiLink name="lv_treeview_node_remove" display="lv_treeview_node_remove(node)" /> removes a node
+and all its children from the tree.
+
+## Events
+
+- <ApiLink name="LV_EVENT_CLICKED" /> A node is clicked. Use
+  <ApiLink name="lv_treeview_node_get_text" /> to identify which node.
+
+## Examples
+
+### Simple Treeview
+
+<LvglExample name="lv_example_treeview_simple" path="widgets/treeview/lv_example_treeview_simple" />

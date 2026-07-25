@@ -222,6 +222,7 @@
 #include "widgets/tabview/lv_tabview_private.h"
 #include "widgets/textarea/lv_textarea_private.h"
 #include "widgets/tileview/lv_tileview_private.h"
+#include "widgets/treeview/lv_treeview_private.h"
 #include "widgets/win/lv_win_private.h"
 
 /*********************

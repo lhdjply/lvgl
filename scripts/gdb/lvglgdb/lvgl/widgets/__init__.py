@@ -44,6 +44,8 @@ from .lv_table import LVTable
 from .lv_tabview import LVTabview
 from .lv_tileview import LVTileview
 from .lv_tileview_tile import LVTileviewTile
+from .lv_treeview import LVTreeview
+from .lv_treeview_node import LVTreeviewNode
 from .lv_win import LVWin
 
 WIDGET_REGISTRY: dict[str, type] = {
@@ -86,6 +88,8 @@ WIDGET_REGISTRY: dict[str, type] = {
     "lv_tabview": LVTabview,
     "lv_tileview": LVTileview,
     "lv_tileview_tile": LVTileviewTile,
+    "lv_treeview": LVTreeview,
+    "lv_treeview_node": LVTreeviewNode,
     "lv_win": LVWin,
 }
 
@@ -146,6 +150,8 @@ __all__ = [
     "LVTabview",
     "LVTileview",
     "LVTileviewTile",
+    "LVTreeview",
+    "LVTreeviewNode",
     "LVWin",
     "WIDGET_REGISTRY",
     "wrap_widget",

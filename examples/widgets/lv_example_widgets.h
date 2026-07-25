@@ -52,6 +52,7 @@ extern "C" {
 #include "tabview/lv_example_tabview.h"
 #include "textarea/lv_example_textarea.h"
 #include "tileview/lv_example_tileview.h"
+#include "treeview/lv_example_treeview.h"
 #include "win/lv_example_win.h"
 
 #ifdef __cplusplus
